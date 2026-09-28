@@ -15,6 +15,20 @@ A test console next to the form records everything the form sends to the host pa
 
 ## Run it
 
+### From GitHub (no install): Codespaces
+
+1. On the repo page, click **Code → Codespaces → Create codespace on this branch**.
+2. Wait about a minute. The test CRM opens in a new browser tab automatically. If it doesn't, open
+   the **Ports** tab at the bottom, find port 8080, and click the globe icon.
+3. Leave the codespace tab open while testing. It stops after about 30 min of inactivity; restart it
+   from **Code → Codespaces**. The page address stays the same, so resume links keep working.
+
+The address looks like `https://<name>-8080.app.github.dev/harness/index.html`. Only you can open it
+while signed in to GitHub. That's fine for your own testing, but a resume link sent to someone else
+won't open for them.
+
+### On your own computer
+
 The page must be served over `http(s)://`, not opened as a `file://`. The snippet sends the host
 page URL to the form as `wfref`, and a `file://` URL is not something a real client would have.
 
