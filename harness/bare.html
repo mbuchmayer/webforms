@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bare embed</title>
+</head>
+<body>
+<!-- Control page: the client snippet and nothing else. Use it to rule out
+     anything the mock CRM or the test observer might be causing. -->
+<script>
+            const events = {
+                onLoaded: ({ initialValues }) => console.log('onLoaded', { initialValues }),
+                beforeSubmit: (values, { form }) => console.log('beforeSubmit', { values, form }),
+                onSubmitted: (values, { form }) => console.log('onSubmitted', { values, form }),
+                onSubmitFailed: (msg, { values, form }) => console.log('onSubmitFailed', { msg, values, form }),
+                onESignFailed: (msg, { eSignType }) => console.log('onESignFailed', { msg, eSignType }),
+                onFormFinished: (values, { form, hasESign }) => console.log('onFormFinished', { values, form, hasESign })
+            };
+
+            (function (w,d,f,cf,et) {
+                const i = d.createElement('iframe'); cf.src = f; const p = new URLSearchParams(window.location.search).get("wfpid");
+                const su = new URL(cf.src); if (p) { su.searchParams.set("wfpid", p); }
+                su.searchParams.set("wfref", encodeURIComponent(window.location.href)); cf.src = su.toString()
+                Object.keys(cf).forEach(key => { i[key] = cf[key]; }); d.currentScript.parentNode.insertBefore(i, d.currentScript);
+                w.addEventListener('message', e => e.origin === (new URL(f)).origin && et[e.data.type]?.(...e.data.args));
+            }(window, document, 'https://demo.iriscrm.com/embed/form/f5d7083b-f40c-48ff-8fed-e7b0ce4ddd1e', { width: '100%', height: '800px' }, events));
+        </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northwind Partner CRM</title>
+<link rel="stylesheet" href="crm.css">
+<!-- Test observer: must load before the embed snippet. Not part of what a client would paste. -->
+<script src="observer.js"></script>
+</head>
+<body>
+<header class="topbar">
+    <div class="brand"><span class="logo">N</span> Northwind Partner CRM</div>
+    <input class="search" type="search" placeholder="Search merchants, leads, tickets…">
+    <div class="user">Jordan Lee · Sales Agent</div>
+</header>
+
+<div class="shell">
+    <nav class="sidebar">
+        <a>Dashboard</a>
+        <a>Leads</a>
+        <a class="active">Merchants</a>
+        <a>Residuals</a>
+        <a>Tickets</a>
+        <a>Reports</a>
+        <a>Settings</a>
+    </nav>
+
+    <main class="content">
+        <div class="crumbs">Merchants / Blue Harbor Coffee Co.</div>
+        <div class="record-head">
+            <div>
+                <h1>Blue Harbor Coffee Co.</h1>
+                <div class="meta">Lead #48213 · Retail · Owner: Jordan Lee · Stage: <span class="pill">Application</span></div>
+            </div>
+            <div class="actions"><button type="button">Log call</button><button type="button">Send email</button></div>
+        </div>
+
+        <div class="tabs">
+            <span>Overview</span><span>Activity</span><span class="active">Onboarding application</span><span>Documents</span>
+        </div>
+
+        <div class="grid">
+            <section class="card embed-card">
+                <h2>Merchant application</h2>
+                <p class="hint">Embedded exactly as a client would paste it. Everything below this line is the client snippet.</p>
+
+                <!-- ===== BEGIN CLIENT EMBED SNIPPET (verbatim) ===== -->
+                <script>
+                    const events = {
+                        onLoaded: ({ initialValues }) => console.log('onLoaded', { initialValues }),
+                        beforeSubmit: (values, { form }) => console.log('beforeSubmit', { values, form }),
+                        onSubmitted: (values, { form }) => console.log('onSubmitted', { values, form }),
+                        onSubmitFailed: (msg, { values, form }) => console.log('onSubmitFailed', { msg, values, form }),
+                        onESignFailed: (msg, { eSignType }) => console.log('onESignFailed', { msg, eSignType }),
+                        onFormFinished: (values, { form, hasESign }) => console.log('onFormFinished', { values, form, hasESign })
+                    };
+
+                    (function (w,d,f,cf,et) {
+                        const i = d.createElement('iframe'); cf.src = f; const p = new URLSearchParams(window.location.search).get("wfpid");
+                        const su = new URL(cf.src); if (p) { su.searchParams.set("wfpid", p); }
+                        su.searchParams.set("wfref", encodeURIComponent(window.location.href)); cf.src = su.toString()
+                        Object.keys(cf).forEach(key => { i[key] = cf[key]; }); d.currentScript.parentNode.insertBefore(i, d.currentScript);
+                        w.addEventListener('message', e => e.origin === (new URL(f)).origin && et[e.data.type]?.(...e.data.args));
+                    }(window, document, 'https://demo.iriscrm.com/embed/form/f5d7083b-f40c-48ff-8fed-e7b0ce4ddd1e', { width: '100%', height: '800px' }, events));
+                </script>
+                <!-- ===== END CLIENT EMBED SNIPPET ===== -->
+            </section>
+
+            <aside class="card panel">
+                <h2>Test console</h2>
+
+                <div class="stats">
+                    <div><label>On page</label><b id="t-page">0:00</b></div>
+                    <div><label>Since last form message</label><b id="t-msg">—</b></div>
+                    <div><label>Since focus entered form</label><b id="t-focus">—</b></div>
+                </div>
+
+                <div class="block">
+                    <label>Save &amp; resume (<code>wfpid</code>)</label>
+                    <div class="kv"><span>wfpid in this page URL</span><code id="cur-wfpid">none</code></div>
+                    <div class="kv"><span>iframe src</span><code id="iframe-src" class="wrap">—</code></div>
+                    <div class="row">
+                        <input id="wfpid-input" placeholder="Paste wfpid or a full resume link">
+                        <button type="button" id="wfpid-go">Open</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="reload-frame">Reload iframe only</button>
+                        <button type="button" id="new-tab">Open page in new tab</button>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <label>Event log <span class="muted">(kept across reloads)</span></label>
+                    <div class="row">
+                        <input id="note-input" placeholder="Add a note, e.g. 'left idle 30 min'">
+                        <button type="button" id="note-add">Note</button>
+                    </div>
+                    <div class="row">
+                        <label class="check"><input type="checkbox" id="only-form"> Form messages only</label>
+                        <button type="button" id="export">Export JSON</button>
+                        <button type="button" id="clear">Clear</button>
+                    </div>
+                    <ol id="log" class="log"></ol>
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+
+<script src="console.js"></script>
+</body>
+</html>
