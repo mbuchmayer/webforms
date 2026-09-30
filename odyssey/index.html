@@ -7,11 +7,13 @@
 <link rel="stylesheet" href="odyssey-tokens.css">
 <link rel="stylesheet" href="portal.css">
 <link rel="stylesheet" href="widget-theme.css">
+<!-- Debug inspector (?debug=1 only). In <head> so it records errors and requests from the start. -->
+<script src="inspect.js"></script>
 </head>
 <body>
-<div class="app">
-<aside class="sidebar">
-    <div class="side-logo">
+<div class="portal-app">
+<aside class="portal-sidebar">
+    <div class="portal-side-logo">
         <!-- NMI logo from the Odyssey product UI kit -->
         <svg viewBox="0 0 166 56" aria-label="NMI">
             <defs>
@@ -28,36 +30,37 @@
             <text x="74" y="40" font-family="Public Sans, system-ui, sans-serif" font-size="32" font-weight="900" fill="currentColor">NMI</text>
         </svg>
     </div>
-    <nav class="side-nav">
-        <a class="side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 4L21 12"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Dashboard</a>
-        <a class="side-link active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l1.5-5h13L20 10"/><path d="M4 10h16v10H4z"/><path d="M10 20v-5h4v5"/></svg>Merchants</a>
-        <a class="side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="13" rx="2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/></svg>Residuals</a>
-        <a class="side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>Reports</a>
-        <a class="side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Settings</a>
+    <nav class="portal-side-nav">
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 4L21 12"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Dashboard</a>
+        <a class="portal-side-link active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l1.5-5h13L20 10"/><path d="M4 10h16v10H4z"/><path d="M10 20v-5h4v5"/></svg>Merchants</a>
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="13" rx="2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/></svg>Residuals</a>
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>Reports</a>
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Settings</a>
     </nav>
 </aside>
 
-<div class="main">
-<header class="topbar">
-    <label class="search">
+<div class="portal-main">
+<header class="portal-topbar">
+    <label class="portal-search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input type="search" placeholder="Search merchants by name or MID" aria-label="Search merchants">
     </label>
-    <span class="avatar" title="Jordan Lee">JL</span>
+    <span class="portal-avatar" title="Jordan Lee">JL</span>
 </header>
 
-<main class="page">
-    <ol class="breadcrumb" aria-label="Breadcrumb">
+<main class="portal-page">
+    <ol class="portal-breadcrumb" aria-label="Breadcrumb">
         <li><a href="#">Merchants</a></li>
         <li><span aria-current="page">New merchant application</span></li>
     </ol>
-    <h1 class="page-title">New Merchant Application</h1>
-    <p class="page-subtitle">Complete the application to start underwriting. Your progress is saved as you go.</p>
+    <h1 class="portal-page-title">New Merchant Application</h1>
+    <p class="portal-page-subtitle">Complete the application to start underwriting. Your progress is saved as you go.</p>
 
-    <div id="app-banner" class="banner" role="status"></div>
+    <div id="app-banner" class="portal-banner" role="status"></div>
 
-    <section class="card">
+    <section class="portal-card">
         <!-- Merchant Central JS Widget. The loader must sit inside <body>: it inserts the bundle before the first <script> in the body. -->
+        <div id="wf-widget"></div>
         <script>
             (async function (w,d,s,o,f,cf,js,fjs) {
                 w['WF-Widget'] = o; cf = { org: new URL(f).origin, ...cf };
@@ -71,7 +74,7 @@
             // Portal reactions to the widget's lifecycle, on top of the default console logging.
             function showBanner(kind, text) {
                 const b = document.getElementById('app-banner');
-                b.className = 'banner show ' + kind;
+                b.className = 'portal-banner show ' + kind;
                 b.textContent = text;
                 b.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
@@ -104,6 +107,5 @@
 </div>
 </div>
 
-<script src="inspect.js"></script>
 </body>
 </html>
