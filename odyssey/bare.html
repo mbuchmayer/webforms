@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bare JS Widget</title>
+</head>
+<body>
+<!-- Control page: MC's JS Widget code exactly as generated, with no Odyssey styling,
+     no portal layout and no inspector. If the form shows here but not on index.html,
+     something on index.html is breaking it. -->
+<div id="wf-widget"></div>
+<script>
+            (async function (w,d,s,o,f,cf,js,fjs) {
+                w['WF-Widget'] = o; cf = { org: new URL(f).origin, ...cf };
+                w[o] = w[o] || function () { (w[o].q = w[o].q || []).push([...arguments, cf]) };
+                const el = !d.getElementById('wf-widget') && Object.assign(document.createElement('div'), { id: 'wf-widget' });
+                el && d.currentScript.parentNode.insertBefore(el, d.currentScript)
+                js = d.createElement(s), fjs = d.body.getElementsByTagName(s)[0]; const fc = await fetch(f).then(r => r.json());
+                cf.bnd = fc?.url; js.id = o; js.src = fc?.url; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+            }(window, document, 'script', 'wf', 'https://demo.iriscrm.com/web-form/bundle', { lf: false }));
+
+            wf('init', {
+                elementId: "wf-widget",
+                id: 'e87a6b86-fca6-4016-9ca2-0ded48e3c5a6',
+                options: {},
+                events: {
+                    onLoaded: ({ initialValues }) => { console.log('onLoaded', { initialValues }) },
+                    beforeSubmit: async (values, { form }) => { console.log('beforeSubmit', { values, form }) },
+                    onSubmitted: (values, { form }) => { console.log('onSubmitted', { values, form }) },
+                    onSubmitFailed: (msg, { values, form }) => { console.log('onSubmitFailed', { msg, values, form }) },
+                    onESignFailed: (msg, { eSignType }) => { console.log('onESignFailed', { msg, eSignType }) },
+                    onFormFinished: (values, { form, hasESign }) => { console.log('onFormFinished', { values, form, hasESign }) }
+                }
+            });
+        </script>
+</body>
+</html>

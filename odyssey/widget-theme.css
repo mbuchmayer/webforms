@@ -8,6 +8,34 @@
  * (?debug=1) shows the widget uses a shadow root or an iframe, these rules
  * can't reach it and only MC's own options apply.
  */
+/*
+ * The widget's own theme variables (found by the inspector in its CSS),
+ * mapped to Odyssey tokens. Set on #wf-widget so everything inside inherits
+ * them ahead of the widget's :root defaults.
+ */
+#wf-widget {
+    --primary-font: var(--font-sans);
+    --primary-color: var(--nmi-purple-600);
+    --secondary-color: var(--bg-brand-subtlest);
+    --primary-text-color: var(--neutral-800);
+    --primary-hover-color: var(--neutral-100);
+    --field-label-text-color: var(--neutral-800);
+    --input-field-bg-color: var(--bg-surface);
+    --focused-border-color: var(--nmi-purple-600);
+    --placeholder-color: var(--text-subtlest);
+    --link-color: var(--text-link);
+    --main-body-color: var(--bg-surface);
+    --main-body-second-color: var(--bg-sunken);
+    --background-color: transparent;
+    --wf-font-size: 14px;
+    --bs-body-font-family: var(--font-sans);
+    --bs-primary: var(--nmi-purple-600);
+    --bs-primary-rgb: 114, 46, 209;
+    --bs-link-color: var(--text-link);
+    --bs-border-color: var(--border-default);
+    --bs-border-radius: var(--radius-md);
+}
+
 #wf-widget {
     font-family: var(--font-sans);
     font-size: 14px;

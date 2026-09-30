@@ -13,6 +13,7 @@ A test console next to the form records everything the form sends to the host pa
 | `harness/observer.js` | Loads before the snippet and logs every `postMessage`, including types the snippet ignores |
 | `harness/console.js`, `harness/crm.css` | Test console UI and CRM styling |
 | `odyssey/index.html` | Partner portal page with the MC JS Widget, styled with the NMI Odyssey design system. Add `?debug=1` for the widget inspector |
+| `odyssey/bare.html` | MC's JS Widget code alone on an empty page, as a control |
 | `odyssey/odyssey-tokens.css`, `odyssey/fonts/` | Odyssey tokens and the Public Sans font, copied unchanged from the NMI Odyssey Design System |
 | `odyssey/portal.css`, `odyssey/widget-theme.css` | Portal layout, and the Odyssey input/button styles applied to the widget |
 

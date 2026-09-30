@@ -13,7 +13,11 @@ html body {
     -webkit-font-smoothing: antialiased;
 }
 
-.portal-app { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh; }
+.portal-app {
+    display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh;
+    /* Set here as well as on body: the widget's Bootstrap CSS overrides the body background. */
+    background: var(--bg-page);
+}
 
 /* Sidebar */
 .portal-sidebar {
