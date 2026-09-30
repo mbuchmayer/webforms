@@ -38,8 +38,8 @@ The page must be served over `http(s)://`, not opened as a `file://`. The snippe
 page URL to the form as `wfref`, and a `file://` URL is not something a real client would have.
 
 ```bash
-python3 -m http.server 8080
-# open http://localhost:8080/harness/
+python3 serve.py
+# open http://localhost:8080/harness/ or http://localhost:8080/odyssey/
 ```
 
 To test from a real public domain (closer to production, and needed if the resume email should link

@@ -5,5 +5,5 @@
     "portsAttributes": {
         "8080": { "label": "Web form samples", "onAutoForward": "openBrowser" }
     },
-    "postAttachCommand": "python3 -m http.server 8080"
+    "postAttachCommand": "python3 serve.py"
 }
