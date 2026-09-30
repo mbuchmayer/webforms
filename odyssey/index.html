@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="odyssey-tokens.css">
 <link rel="stylesheet" href="portal.css">
 <link rel="stylesheet" href="widget-theme.css">
+<!-- Workaround: the MC widget crashes with "reading 'defineLocale'" unless Moment.js is already
+     on the page. Remove once the widget bundles it. See odyssey/bare-moment.html. -->
+<script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
 <!-- Debug inspector (?debug=1 only). In <head> so it records errors and requests from the start. -->
 <script src="inspect.js"></script>
 </head>
