@@ -1,6 +1,32 @@
 <!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
-<title>Web Form embed harness</title>
-<!-- Keeps any ?wfpid= resume parameter when forwarding to the harness. -->
-<script>location.replace('harness/index.html' + location.search);</script>
-<a href="harness/index.html">Open the test CRM</a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web form samples</title>
+<style>
+    body { margin: 0; padding: 32px 16px; font: 15px/1.5 system-ui, sans-serif; background: #f4f6f9; color: #1d2433; }
+    main { max-width: 640px; margin: 0 auto; }
+    .card { background: #fff; border: 1px solid #e1e5ec; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+    code { background: #eef1f6; padding: 2px 6px; border-radius: 4px; font-size: 14px; word-break: break-all; }
+    a { color: #2f5bea; }
+</style>
+</head>
+<body>
+<main>
+    <h1>Web form samples</h1>
+    <div class="card">
+        <b>This page's domain</b> (enter it in the JS Widget "Domains" setting in Merchant Central):
+        <p><code id="host"></code></p>
+        <b>Full page address of the Odyssey sample:</b>
+        <p><code id="sample"></code></p>
+    </div>
+    <div class="card"><a href="harness/">Dynamic iFrame test CRM</a>: session timeout and Save Progress testing.</div>
+    <div class="card"><a href="odyssey/">Odyssey JS Widget sample</a>: Merchant Central web form styled with the Odyssey design system.</div>
+</main>
+<script>
+    document.getElementById('host').textContent = location.host;
+    document.getElementById('sample').textContent = location.origin + '/odyssey/';
+</script>
+</body>
+</html>

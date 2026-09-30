@@ -23,7 +23,9 @@ A test console next to the form records everything the form sends to the host pa
 3. Leave the codespace tab open while testing. It stops after about 30 min of inactivity; restart it
    from **Code → Codespaces**. The page address stays the same, so resume links keep working.
 
-The address looks like `https://<name>-8080.app.github.dev/`. Only you can open it
+The address looks like `https://<name>-8080.app.github.dev/`. The start page links to the test CRM
+(`/harness/`) and the Odyssey JS Widget sample (`/odyssey/`), and shows the domain to allow in
+Merchant Central. Only you can open it
 while signed in to GitHub. That's fine for your own testing, but a resume link sent to someone else
 won't open for them.
 
@@ -33,9 +35,8 @@ The page must be served over `http(s)://`, not opened as a `file://`. The snippe
 page URL to the form as `wfref`, and a `file://` URL is not something a real client would have.
 
 ```bash
-cd harness
 python3 -m http.server 8080
-# open http://localhost:8080/
+# open http://localhost:8080/harness/
 ```
 
 To test from a real public domain (closer to production, and needed if the resume email should link

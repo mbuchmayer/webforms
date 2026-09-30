@@ -3,7 +3,7 @@
     "image": "mcr.microsoft.com/devcontainers/python:3.11",
     "forwardPorts": [8080],
     "portsAttributes": {
-        "8080": { "label": "Test CRM", "onAutoForward": "openBrowser" }
+        "8080": { "label": "Web form samples", "onAutoForward": "openBrowser" }
     },
-    "postAttachCommand": "python3 -m http.server 8080 --directory harness"
+    "postAttachCommand": "python3 -m http.server 8080"
 }
