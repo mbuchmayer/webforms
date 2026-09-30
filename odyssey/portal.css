@@ -1,0 +1,105 @@
+/*
+ * Partner portal shell. The layout follows the Odyssey product UI kit
+ * (sidebar + top bar + page). The page header follows the Confluence
+ * "Design System Guidelines": breadcrumb, then title, then subtitle.
+ */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--neutral-800);
+    background: var(--bg-page);
+    -webkit-font-smoothing: antialiased;
+}
+
+.app { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    padding: 22px 0 18px;
+}
+.side-logo { padding: 0 20px 28px; }
+.side-logo svg { height: 28px; width: auto; display: block; color: var(--neutral-800); }
+.side-nav { display: flex; flex-direction: column; gap: 1px; padding: 0 var(--space-4); }
+.side-link {
+    display: flex; align-items: center; gap: var(--space-4);
+    padding: 10px var(--space-4);
+    border-radius: var(--radius-md);
+    font: 500 14px/1 var(--font-sans);
+    color: var(--neutral-700);
+    text-decoration: none;
+}
+.side-link:hover { background: var(--neutral-100); }
+.side-link.active { background: #f0eafb; color: var(--nmi-purple-600); font-weight: 600; }
+.side-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Top bar */
+.main { display: flex; flex-direction: column; min-width: 0; }
+.topbar {
+    height: 64px; display: flex; align-items: center; gap: var(--space-5);
+    padding: 0 var(--space-8);
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+}
+.search {
+    flex: 1; max-width: 600px;
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 14px;
+    border: 1px solid var(--border-default); border-radius: 10px;
+    color: var(--text-subtlest);
+}
+.search svg { width: 16px; height: 16px; flex-shrink: 0; }
+.search input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: 400 14px/1 var(--font-sans); color: var(--neutral-800); }
+.avatar {
+    margin-left: auto; width: 36px; height: 36px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--nmi-payments-purple); color: var(--text-inverse);
+    font: 700 13px/1 var(--font-sans);
+}
+
+/* Page */
+.page { width: 100%; max-width: 1040px; padding: 0 var(--space-9) var(--space-12); }
+
+/* Breadcrumb: chevron separators, parents are links, current page is neutral. */
+.breadcrumb {
+    display: flex; align-items: center; gap: var(--space-3);
+    height: 40px; margin: var(--space-5) 0 var(--space-7); padding: 0;
+    list-style: none;
+}
+.breadcrumb li + li::before { content: "\203A"; margin-right: var(--space-3); color: var(--text-subtlest); }
+.breadcrumb a { color: var(--text-link); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb [aria-current] { color: var(--text-subtlest); }
+
+/* heading/level-05/semibold and subtitle/level-02/regular from the guidelines */
+.page-title { margin: 0; font: 600 32px/38.4px var(--font-sans); color: var(--neutral-800); }
+.page-subtitle { margin: var(--space-1) 0 var(--space-7); font: 400 14px/16.8px var(--font-sans); color: var(--text-subtlest); }
+
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7);
+}
+
+.banner {
+    display: none;
+    margin-bottom: var(--space-5); padding: 14px 18px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+}
+.banner.show { display: block; }
+.banner.success { background: var(--status-success-soft); color: var(--text-success); }
+.banner.error { background: var(--status-error-soft); color: var(--text-error); }
+
+@media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .topbar { padding: 0 16px; }
+    .page { padding: 0 16px var(--space-10); }
+    .card { padding: var(--space-5); }
+    .page-title { font-size: 26px; line-height: 32px; }
+}

@@ -1,0 +1,90 @@
+/*
+ * Odyssey theme for the Merchant Central JS Widget.
+ *
+ * Values follow the Odyssey Inputs and Buttons components (medium size).
+ * The widget's own class names aren't known yet, so these rules target
+ * plain HTML elements inside #wf-widget. The id gives them enough
+ * specificity to beat most of the widget's own styles. If the inspector
+ * (?debug=1) shows the widget uses a shadow root or an iframe, these rules
+ * can't reach it and only MC's own options apply.
+ */
+#wf-widget {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--neutral-800);
+}
+
+/* Inputs */
+#wf-widget label {
+    font: 600 14px/1.2 var(--font-sans);
+    color: var(--neutral-800);
+}
+
+#wf-widget input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"]),
+#wf-widget select,
+#wf-widget textarea {
+    font: 400 16px/22px var(--font-sans);
+    color: var(--neutral-800);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 11px var(--space-4);
+    outline: none;
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+#wf-widget input::placeholder,
+#wf-widget textarea::placeholder { color: var(--text-subtlest); }
+
+#wf-widget input:focus,
+#wf-widget select:focus,
+#wf-widget textarea:focus {
+    border-color: var(--nmi-purple-600);
+    box-shadow: var(--shadow-focus-ring);
+}
+
+#wf-widget [aria-invalid="true"] { border-color: var(--nmi-error); }
+
+#wf-widget input:disabled,
+#wf-widget select:disabled,
+#wf-widget textarea:disabled {
+    background: var(--bg-sunken);
+    color: var(--text-disabled);
+}
+
+#wf-widget input[type="checkbox"],
+#wf-widget input[type="radio"] { accent-color: var(--nmi-purple-600); }
+
+/* Buttons: secondary by default; submit/next is the primary action. */
+#wf-widget button {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--space-3);
+    height: 40px;
+    padding: 0 var(--space-5);
+    font: 700 14px/1 var(--font-sans);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--nmi-purple-600);
+    background: var(--bg-surface);
+    color: var(--nmi-purple-600);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out);
+}
+#wf-widget button:hover { background: rgba(115, 86, 204, 0.05); }
+#wf-widget button:active { background: rgba(115, 86, 204, 0.10); }
+#wf-widget button:focus-visible { outline: 2px solid #7356cc; outline-offset: 2px; }
+
+#wf-widget button[type="submit"] {
+    border-color: var(--nmi-purple-600);
+    background: var(--nmi-purple-600);
+    color: var(--text-inverse);
+}
+#wf-widget button[type="submit"]:hover { background: #5f23b5; }
+
+#wf-widget button:disabled,
+#wf-widget button[type="submit"]:disabled {
+    cursor: not-allowed;
+    border-color: var(--neutral-200);
+    background: var(--neutral-200);
+    color: var(--text-disabled);
+}
+
+#wf-widget a { color: var(--text-link); }
+#wf-widget a:hover { text-decoration: underline; }
