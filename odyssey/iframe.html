@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Merchant Application (iFrame)</title>
+<link rel="stylesheet" href="odyssey-tokens.css">
+<link rel="stylesheet" href="portal.css">
+</head>
+<body>
+<div class="portal-app">
+<aside class="portal-sidebar">
+    <div class="portal-side-logo">
+        <!-- NMI logo from the Odyssey product UI kit -->
+        <svg viewBox="0 0 166 56" aria-label="NMI">
+            <defs>
+                <linearGradient id="nmiSideGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#D2FF97"/>
+                    <stop offset="50%" stop-color="#85F39B"/>
+                    <stop offset="100%" stop-color="#5CD5A5"/>
+                </linearGradient>
+            </defs>
+            <rect x="6" y="9" width="8" height="38" rx="1.5" fill="url(#nmiSideGrad)"/>
+            <rect x="44" y="9" width="8" height="38" rx="1.5" fill="url(#nmiSideGrad)"/>
+            <path d="M 45.5 9.2 L 53 16.5 L 14 47 L 6.5 39.7 Z" fill="url(#nmiSideGrad)"/>
+            <circle cx="56.5" cy="13" r="5" fill="#5CDDAD"/>
+            <text x="74" y="40" font-family="Public Sans, system-ui, sans-serif" font-size="32" font-weight="900" fill="currentColor">NMI</text>
+        </svg>
+    </div>
+    <nav class="portal-side-nav">
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 4L21 12"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Dashboard</a>
+        <a class="portal-side-link active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l1.5-5h13L20 10"/><path d="M4 10h16v10H4z"/><path d="M10 20v-5h4v5"/></svg>Merchants</a>
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="13" rx="2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/></svg>Residuals</a>
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>Reports</a>
+        <a class="portal-side-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Settings</a>
+    </nav>
+</aside>
+
+<div class="portal-main">
+<header class="portal-topbar">
+    <label class="portal-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" placeholder="Search merchants by name or MID" aria-label="Search merchants">
+    </label>
+    <span class="portal-avatar" title="Jordan Lee">JL</span>
+</header>
+
+<main class="portal-page">
+    <ol class="portal-breadcrumb" aria-label="Breadcrumb">
+        <li><a href="#">Merchants</a></li>
+        <li><span aria-current="page">New merchant application</span></li>
+    </ol>
+    <h1 class="portal-page-title">New Merchant Application</h1>
+    <p class="portal-page-subtitle">Complete the application to start underwriting.</p>
+
+    <section class="portal-card portal-card-flush">
+        <!-- Merchant Central Simple iFrame, pasted as generated. The form's look inside
+             the frame is controlled only by the form's styling settings in MC. -->
+        <iframe src="https://demo.iriscrm.com/embed/form/e87a6b86-fca6-4016-9ca2-0ded48e3c5a6?wf-iframe=1" width="100%" 
+              height="800px" frameborder="0" allowfullscreen style="position: fixed; opacity: 0" 
+              onload="this.style.position='static'; this.style.opacity='1'"></iframe>
+    </section>
+</main>
+</div>
+</div>
+
+</body>
+</html>

@@ -107,3 +107,7 @@ html body {
     .portal-card { padding: var(--space-5); }
     .portal-page-title { font-size: 26px; line-height: 32px; }
 }
+
+/* Card holding an iframe: no inner padding, and clip the frame to the rounded corners. */
+.portal-card-flush { padding: 0; overflow: hidden; }
+.portal-card-flush iframe { display: block; }
